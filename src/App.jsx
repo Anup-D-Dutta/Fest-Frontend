@@ -58,23 +58,12 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const nextStep = () => {
-    if (currentStep < 3) setCurrentStep(currentStep + 1);
-  };
-
-  const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
-  };
-
-  // const navItems = ['Home', 'Events', 'Schedule', 'Tickets', 'Contact'];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-x-hidden">
       {/* Animated Background Elements */}
       <AnimationBg />
 
-      {/* Navigation */}
-      <NavBar />
 
       {/* Hero Section */}
       <HomePage />
@@ -90,7 +79,6 @@ const App = () => {
       {/* CTA Section */}
       <Cta />
 
-      <Footer />
 
     </div>
   );
