@@ -1,6 +1,7 @@
 import React from 'react'
+import DashBoard from '../components/DashBoard'
 
-const DashBoard = () => {
+const DashBoardPage = () => {
   return (
     <div>
       <DashBoard/>
@@ -8,4 +9,4 @@ const DashBoard = () => {
   )
 }
 
-export default DashBoard
+export default DashBoardPage
