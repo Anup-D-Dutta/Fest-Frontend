@@ -460,13 +460,6 @@ const Hero = () => {
                     </div>
                 </div>
             )}
-            <Countdown />
-
-            {/* Events Section */}
-            <Event />
-
-            {/* CTA Section */}
-            <Cta />
         </div>
 
     )
