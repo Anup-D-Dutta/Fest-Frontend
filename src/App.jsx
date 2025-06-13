@@ -1,14 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Music, Zap, Trophy, Palette, Users, Gamepad2, Calendar, MapPin, Clock, Star, ChevronRight, Menu, X, Home } from 'lucide-react';
 import AnimationBg from './components/AnimationBg';
-import Countdown from './components/Countdown';
-import Event from './components/Event';
 import './components/Countdown.css'
-import RegisterHeader from './components/RegisterHeader';
-import Footer from './components/Footer';
-import Cta from './components/Cta';
-import Register from './components/Register';
-import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage'
 
 const App = () => {
@@ -19,19 +11,6 @@ const App = () => {
     seconds: 45
   });
   const [scrollY, setScrollY] = useState(0);
-  const [showRegister, setShowRegister] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    college: '',
-    year: '',
-    events: [],
-    accommodation: false,
-    tshirtSize: 'M'
-  });
-  const [currentStep, setCurrentStep] = useState(1);
 
   // Countdown timer effect
   useEffect(() => {
@@ -58,40 +37,12 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const nextStep = () => {
-    if (currentStep < 3) setCurrentStep(currentStep + 1);
-  };
-
-  const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
-  };
-
-  // const navItems = ['Home', 'Events', 'Schedule', 'Tickets', 'Contact'];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-x-hidden">
       {/* Animated Background Elements */}
       <AnimationBg />
-
-      {/* Navigation */}
-      <NavBar />
-
-      {/* Hero Section */}
       <HomePage />
-
-      
-      {/* Countdown Section */}
-
-      <Countdown />
-
-      {/* Events Section */}
-      <Event />
-
-      {/* CTA Section */}
-      <Cta />
-
-      <Footer />
-
     </div>
   );
 };
