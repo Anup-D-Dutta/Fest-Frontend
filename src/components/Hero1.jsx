@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Music, Zap, Trophy, Palette, Users, Gamepad2, Calendar, MapPin, Clock, Star, ChevronRight, Menu, X, Home } from 'lucide-react';
 import RegisterHeader from './RegisterHeader';
+import Countdown from './Countdown';
+import Cta from './Cta';
+import Event from './Event';
 
 const Hero = () => {
     const [showRegister, setShowRegister] = useState(false);
@@ -16,6 +19,30 @@ const Hero = () => {
         tshirtSize: 'M'
     });
     const [currentStep, setCurrentStep] = useState(1);
+    useEffect(() => {
+        const timer = setInterval(() => {
+            const eventDate = new Date('2025-08-15T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            setTimeLeft({
+                days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+                minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+                seconds: Math.floor((distance % (1000 * 60)) / 1000)
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    // Scroll effect
+    useEffect(() => {
+        const handleScroll = () => setScrollY(window.scrollY);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
 
 
     const handleInputChange = (e) => {
@@ -433,7 +460,15 @@ const Hero = () => {
                     </div>
                 </div>
             )}
+            <Countdown />
+
+            {/* Events Section */}
+            <Event />
+
+            {/* CTA Section */}
+            <Cta />
         </div>
+
     )
 }
 

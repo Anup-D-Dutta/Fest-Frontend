@@ -4,11 +4,7 @@ import AnimationBg from './components/AnimationBg';
 import Countdown from './components/Countdown';
 import Event from './components/Event';
 import './components/Countdown.css'
-import RegisterHeader from './components/RegisterHeader';
-import Footer from './components/Footer';
 import Cta from './components/Cta';
-import Register from './components/Register';
-import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage'
 
 const App = () => {
@@ -19,19 +15,6 @@ const App = () => {
     seconds: 45
   });
   const [scrollY, setScrollY] = useState(0);
-  const [showRegister, setShowRegister] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    college: '',
-    year: '',
-    events: [],
-    accommodation: false,
-    tshirtSize: 'M'
-  });
-  const [currentStep, setCurrentStep] = useState(1);
 
   // Countdown timer effect
   useEffect(() => {
@@ -64,21 +47,7 @@ const App = () => {
       {/* Animated Background Elements */}
       <AnimationBg />
 
-
-      {/* Hero Section */}
       <HomePage />
-
-      
-      {/* Countdown Section */}
-
-      <Countdown />
-
-      {/* Events Section */}
-      <Event />
-
-      {/* CTA Section */}
-      <Cta />
-
 
     </div>
   );
