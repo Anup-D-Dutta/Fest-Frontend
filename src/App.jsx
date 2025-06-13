@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Music, Zap, Trophy, Palette, Users, Gamepad2, Calendar, MapPin, Clock, Star, ChevronRight, Menu, X, Home } from 'lucide-react';
 import AnimationBg from './components/AnimationBg';
-import Countdown from './components/Countdown';
-import Event from './components/Event';
 import './components/Countdown.css'
-import Cta from './components/Cta';
 import HomePage from './pages/HomePage'
 
 const App = () => {
@@ -46,9 +42,7 @@ const App = () => {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-x-hidden">
       {/* Animated Background Elements */}
       <AnimationBg />
-
       <HomePage />
-
     </div>
   );
 };
