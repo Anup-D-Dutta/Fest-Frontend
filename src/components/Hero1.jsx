@@ -15,6 +15,31 @@ const Hero = () => {
         accommodation: false,
         tshirtSize: 'M'
     });
+    const [currentStep, setCurrentStep] = useState(1);
+
+
+    const handleInputChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        if (type === 'checkbox' && name === 'events') {
+            setFormData(prev => ({
+                ...prev,
+                events: checked
+                    ? [...prev.events, value]
+                    : prev.events.filter(event => event !== value)
+            }));
+        } else if (type === 'checkbox') {
+            setFormData(prev => ({
+                ...prev,
+                [name]: checked
+            }));
+        } else {
+            setFormData(prev => ({
+                ...prev,
+                [name]: value
+            }));
+        }
+    };
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

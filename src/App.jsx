@@ -58,99 +58,6 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const events = [
-    {
-      icon: Music,
-      title: "Music Competitions",
-      description: "Battle of the Bands, Solo Singing, DJ Wars, and epic musical showdowns!",
-      gradient: "from-pink-500 to-purple-600",
-      delay: "delay-100",
-      id: "music"
-    },
-    {
-      icon: Users,
-      title: "Dance Battles",
-      description: "Hip-hop, Contemporary, Folk, and Fusion dance competitions!",
-      gradient: "from-blue-500 to-cyan-500",
-      delay: "delay-200",
-      id: "dance"
-    },
-    {
-      icon: Zap,
-      title: "Tech Events",
-      description: "Hackathons, Coding Competitions, AI Challenges, and Innovation!",
-      gradient: "from-yellow-400 to-orange-500",
-      delay: "delay-300",
-      id: "tech"
-    },
-    {
-      icon: Palette,
-      title: "Arts & Drama",
-      description: "Theater, Stand-up Comedy, Art exhibitions, and Creative showcases!",
-      gradient: "from-green-400 to-emerald-600",
-      delay: "delay-400",
-      id: "arts"
-    },
-    {
-      icon: Trophy,
-      title: "Sports Arena",
-      description: "Cricket, Football, Basketball tournaments and sports competitions!",
-      gradient: "from-red-500 to-pink-600",
-      delay: "delay-500",
-      id: "sports"
-    },
-    {
-      icon: Gamepad2,
-      title: "Gaming Zone",
-      description: "Esports tournaments, Gaming competitions, and endless fun!",
-      gradient: "from-indigo-500 to-purple-600",
-      delay: "delay-600",
-      id: "gaming"
-    }
-  ];
-
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === 'checkbox' && name === 'events') {
-      setFormData(prev => ({
-        ...prev,
-        events: checked
-          ? [...prev.events, value]
-          : prev.events.filter(event => event !== value)
-      }));
-    } else if (type === 'checkbox') {
-      setFormData(prev => ({
-        ...prev,
-        [name]: checked
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Registration data:', formData);
-    alert('Registration successful! Check your email for confirmation.');
-    setShowRegister(false);
-    setCurrentStep(1);
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      college: '',
-      year: '',
-      events: [],
-      accommodation: false,
-      tshirtSize: 'M'
-    });
-  };
-
   const nextStep = () => {
     if (currentStep < 3) setCurrentStep(currentStep + 1);
   };
@@ -171,8 +78,8 @@ const App = () => {
 
       {/* Hero Section */}
       <HomePage />
-    
 
+      
       {/* Countdown Section */}
 
       <Countdown />
@@ -183,12 +90,7 @@ const App = () => {
       {/* CTA Section */}
       <Cta />
 
-      {/* Footer */}
       <Footer />
-
-      {/* Registration Modal */}
-      {/* <Register /> */}
-     
 
     </div>
   );
