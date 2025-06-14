@@ -18,19 +18,14 @@ const Hero = () => {
         accommodation: false,
         tshirtSize: 'M'
     });
+    const [scrollY, setScrollY] = useState(0);
+
     const [currentStep, setCurrentStep] = useState(1);
     useEffect(() => {
         const timer = setInterval(() => {
             const eventDate = new Date('2025-08-15T00:00:00').getTime();
             const now = new Date().getTime();
             const distance = eventDate - now;
-
-            setTimeLeft({
-                days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-                hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-                minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-                seconds: Math.floor((distance % (1000 * 60)) / 1000)
-            });
         }, 1000);
 
         return () => clearInterval(timer);

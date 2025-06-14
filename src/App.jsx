@@ -7,12 +7,6 @@ import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
 
 const App = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 45,
-    hours: 12,
-    minutes: 30,
-    seconds: 45
-  });
   const [scrollY, setScrollY] = useState(0);
 
   // Countdown timer effect
@@ -21,13 +15,6 @@ const App = () => {
       const eventDate = new Date('2025-08-15T00:00:00').getTime();
       const now = new Date().getTime();
       const distance = eventDate - now;
-
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
-      });
     }, 1000);
 
     return () => clearInterval(timer);

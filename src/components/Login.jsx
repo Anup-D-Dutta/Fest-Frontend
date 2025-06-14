@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Main Login Component
 const Login = () => {
     // State for form inputs
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
@@ -26,14 +28,11 @@ const Login = () => {
     // Handle login form submission
     const handleLogin = (e) => {
         e.preventDefault();
+        console.log("Loggin in");
+        navigate('/dashboard')
         // Here you would typically send data to an authentication API
         // For demonstration, we'll just show a message.
-        if (email && password) {
-            showMessage(`Attempting to log in with Email: ${email}, Remember Me: ${rememberMe ? 'Yes' : 'No'}.`);
-            // In a real app, you'd integrate with Firebase Auth or similar here.
-        } else {
-            showMessage('Please enter both your email/username and password.');
-        }
+
     };
 
     return (
@@ -112,7 +111,6 @@ const Login = () => {
                         <button
                             type="submit"
                             className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                            onClick={() => <Link to="/dashboard" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Dashboard</Link>}
                         >
                             Sign In
                         </button>
