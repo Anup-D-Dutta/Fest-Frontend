@@ -4,9 +4,12 @@ import RegisterHeader from './RegisterHeader';
 import Countdown from './Countdown';
 import Cta from './Cta';
 import Event from './Event';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+    const navigate = useNavigate();
     const [showRegister, setShowRegister] = useState(false);
+    navigate('/register');
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -65,10 +68,12 @@ const Hero = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        navigate('/register')
         // Here you would typically send the data to your backend
         console.log('Registration data:', formData);
+
         alert('Registration successful! Check your email for confirmation.');
-        setShowRegister(false);
+        // setShowRegister(false);
         setCurrentStep(1);
         setFormData({
             firstName: '',
@@ -193,14 +198,14 @@ const Hero = () => {
                     ))}
                 </div>
             </section>
-            {showRegister && (
+            {/* {showRegister && (
                 <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div className="bg-gradient-to-br from-purple-900/90 to-indigo-900/90 backdrop-blur-lg rounded-3xl border border-white/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
                         <div className="p-8">
-                            {/* Header */}
+                          
                             <RegisterHeader />
 
-                            {/* Progress Steps */}
+
                             <div className="flex justify-center mb-8">
                                 <div className="flex items-center space-x-4">
                                     {[1, 2, 3].map((step) => (
@@ -221,7 +226,7 @@ const Hero = () => {
                             </div>
 
                             <form onSubmit={handleSubmit}>
-                                {/* Step 1: Personal Information */}
+                              
                                 {currentStep === 1 && (
                                     <div className="space-y-6 animate-fade-in-up">
                                         <h3 className="text-2xl font-bold text-center mb-6">Personal Information</h3>
@@ -315,7 +320,7 @@ const Hero = () => {
                                     </div>
                                 )}
 
-                                {/* Step 2: Event Selection */}
+                              
                                 {currentStep === 2 && (
                                     <div className="space-y-6 animate-fade-in-up">
                                         <h3 className="text-2xl font-bold text-center mb-6">Select Events</h3>
@@ -356,7 +361,7 @@ const Hero = () => {
                                     </div>
                                 )}
 
-                                {/* Step 3: Additional Information */}
+                               
                                 {currentStep === 3 && (
                                     <div className="space-y-6 animate-fade-in-up">
                                         <h3 className="text-2xl font-bold text-center mb-6">Additional Information</h3>
@@ -419,7 +424,7 @@ const Hero = () => {
                                     </div>
                                 )}
 
-                                {/* Navigation Buttons */}
+                              
                                 <div className="flex justify-between mt-8 pt-6 border-t border-white/20">
                                     <button
                                         type="button"
@@ -454,7 +459,7 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-            )}
+            )} */}
         </div>
 
     )

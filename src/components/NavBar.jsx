@@ -11,10 +11,11 @@ const NavBar = () => {
   // Define navigation items with their names and corresponding paths
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Events', path: '/events' },
-    { name: 'Register', path: '/register' },
-    { name: 'Login', path: '/login' },
+    // { name: 'Events', path: '/events' },
+    // { name: 'Register', path: '/register' },
     { name: 'About', path: '/about' },
+    { name: 'Login', path: '/login' },
+    
   ];
 
   // Effect to handle scroll event and update scrollY state
