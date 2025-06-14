@@ -73,7 +73,7 @@ const Register1 = () => {
     ];
 
     return (
-        <div className="bg-gray-900 min-h-screen flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8 font-inter">
+        <div className="bg-gray-900 mt-16 min-h-screen flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8 font-inter">
             {/* Message Modal */}
             {isModalOpen && (
                 <div className="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">

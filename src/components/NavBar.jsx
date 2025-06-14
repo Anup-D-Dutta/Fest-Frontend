@@ -1,74 +1,96 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-
 const NavBar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navItems = ['Home', 'Events', 'Schedule', 'Tickets', 'Contact'];
+  // State to manage the mobile menu open/close status
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // State to track scroll position for background effect
+  const [scrollY, setScrollY] = useState(0);
 
-    return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrollY > 50 ? 'bg-black/20 backdrop-blur-lg border-b border-white/10' : ''}`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center py-4">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                        AEC 2025
-                    </div>
+  // Define navigation items with their names and corresponding paths
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Events', path: '/events' },
+    { name: 'Register', path: '/register' },
+    { name: 'Login', path: '/login' },
+    { name: 'About', path: '/about' },
+  ];
 
-                    {/* Desktop Navigation */}
-                    {/* <div className="hidden md:flex space-x-8">
-                        {navItems.map((item, index) => (
-                            <a
-                                key={index}
-                                href={`#${item.toLowerCase()}`}
-                                className="relative hover:text-pink-400 transition-colors duration-300 group"
-                            >
-                                {item}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
-                            </a>
-                        ))}
-                    </div> */}
+  // Effect to handle scroll event and update scrollY state
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
 
-                    {/* Navigation */}
-                    <nav className="flex flex-wrap justify-center md:justify-end space-x-6">
-                        <Link to="" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Home</Link>
-                        <Link to="/events" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Events</Link>
-                        {/* <Link to="/schedule" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Schedule</Link> */}
-                        {/* <Link to="/tickets" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Tickets</Link> */}
-                        {/* <Link to="/contact" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Contact</Link> */}
-                        <Link to="/register" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Register</Link>
-                        <Link to="/login" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Login</Link>
-                        <Link to="/about" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">About</Link>
+    // Add scroll event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
 
-                    </nav>
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
+  return (
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrollY > 50 ? 'bg-black/20 backdrop-blur-lg border-b border-white/10 text-white' : 'text-white'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo/Brand Name */}
+          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+            AEC 2025
+          </Link>
 
-                {/* Mobile Navigation */}
-                {isMenuOpen && (
-                    <div className="md:hidden py-4 border-t border-white/10">
-                        {navItems.map((item, index) => (
-                            <a
-                                key={index}
-                                href={`#${item.toLowerCase()}`}
-                                className="block py-2 hover:text-pink-400 transition-colors duration-300"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                {item}
-                            </a>
-                        ))}
-                    </div>
-                )}
-            </div>
-        </nav>
-    )
-}
+          {/* Desktop Navigation */}
+          {/* This div is hidden on small screens (md:hidden) and displayed as a flex container on medium screens and above (md:flex) */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.path}
+                className="relative hover:text-pink-400 transition-colors duration-300 group"
+              >
+                {item.name}
+                {/* Underline effect on hover */}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            ))}
+          </div>
 
-export default NavBar
+          {/* Mobile Menu Button (Hamburger/Close icon) */}
+          {/* This button is only visible on small screens (md:hidden) */}
+          <button
+            className="md:hidden text-white focus:outline-none" // Added focus:outline-none for better accessibility
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} // ARIA label for accessibility
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {/* This div is conditionally rendered based on isMenuOpen state and is only visible on small screens (md:hidden) */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-gray-800 py-4 border-t border-white/10 flex flex-col items-center space-y-2"> {/* Changed to flex-col and items-center for stacked menu */}
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.path}
+                className="block py-2 hover:text-pink-400 transition-colors duration-300 text-lg w-full text-center" // Ensure links take full width and are centered
+                onClick={() => setIsMenuOpen(false)} // Close the menu when a link is clicked
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;
