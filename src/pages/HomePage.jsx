@@ -11,13 +11,10 @@ import { Outlet } from 'react-router-dom'
 const HomePage = () => {
   return (
     <div>
-      <NavBar />
       <Hero />
       <Countdown />
       <Event />
       <Cat />
-      {/* <Outlet /> */}
-      <Footer />
     </div>
   )
 }
