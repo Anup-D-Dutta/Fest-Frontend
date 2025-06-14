@@ -33,11 +33,12 @@ const NavBar = () => {
                     <nav className="flex flex-wrap justify-center md:justify-end space-x-6">
                         <Link to="" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Home</Link>
                         <Link to="/events" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Events</Link>
-                        <Link to="/schedule" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Schedule</Link>
-                        <Link to="/tickets" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Tickets</Link>
-                        <Link to="/contact" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Contact</Link>
+                        {/* <Link to="/schedule" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Schedule</Link> */}
+                        {/* <Link to="/tickets" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Tickets</Link> */}
+                        {/* <Link to="/contact" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Contact</Link> */}
                         <Link to="/register" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Register</Link>
                         <Link to="/login" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">Login</Link>
+                        <Link to="/about" className="text-lg hover:text-blue-300 transition-colors duration-300 py-1 px-3 rounded-md">About</Link>
 
                     </nav>
 
