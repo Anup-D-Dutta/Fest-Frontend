@@ -120,7 +120,7 @@ const Login = () => {
                 <div className="mt-6 text-center">
                     <p className="text-gray-400">
                         Don't have an account?
-                        <a href="#" onClick={() => showMessage('Navigating to Sign Up page...')} className="font-medium text-purple-400 hover:text-purple-300 ml-2 transition-colors duration-200">
+                        <a href="#" onClick={() => navigate('/register')} className="px-2 text-teal-400 hover:text-teal-300 transition-colors duration-200 font-medium">
                             Sign Up
                         </a>
                     </p>
