@@ -32,7 +32,7 @@ const DashBoard = () => {
             )}
 
             {/* Main Dashboard Container */}
-            <div className="max-w-7xl w-full bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 border border-gray-700">
+            <div className="max-w-7xl w-full bg-gray-800 rounded-2xl shadow-xl grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 border border-gray-700">
 
                 {/* Left Column: Profile Section */}
                 <aside className="lg:col-span-1 bg-gray-700 rounded-xl shadow-lg p-6 flex flex-col items-center border border-gray-600">
@@ -47,17 +47,32 @@ const DashBoard = () => {
 
                     {/* Profile Details */}
                     <div className="space-y-4 mb-8 w-full">
-                        <div className="flex items-center text-gray-300 bg-gray-700 p-3 rounded-lg shadow-sm">
-                            <svg className="w-6 h-6 mr-3 text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                            <span className="font-medium">Email:</span> <span className="truncate">jane.doe@example.com</span>
-                        </div>
-                        <div className="flex items-center text-gray-300 bg-gray-700 p-3 rounded-lg shadow-sm">
-                            <svg className="w-6 h-6 mr-3 text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 002 2v4a2 2 0 002 2v-4a2 2 0 00-2-2H6V6h10a2 2 0 002 2v4a2 2 0 002 2V6a2 2 0 00-2-2H4z" clipRule="evenodd"></path></svg>
-                            <span className="font-medium">College:</span> Arts & Tech University
-                        </div>
-                        <div className="flex items-center text-gray-300 bg-gray-700 p-3 rounded-lg shadow-sm">
-                            <svg className="w-6 h-6 mr-3 text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H4a1 1 0 00-1 1v3a1 1 0 001 1h1a1 1 0 100-2V4zm3 1h2v2H7V5zm3 0h2v2h-2V5z" clipRule="evenodd"></path></svg>
-                            <span className="font-medium">Course:</span> Computer Science
+                        <div className="flex flex-col items-start text-gray-300 bg-gray-700 p-3 rounded-lg shadow-sm">
+                            <div className="flex flex-col items-center space-x-6 w-full justify-start">
+                                {/* Email */}
+                                <div className="flex flex-col items-center mx-2">
+                                    {/* <svg className="w-6 h-6 text-purple-400 mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg> */}
+                                    <span className="font-medium" id="email">Email</span>
+                                    <span className="truncate text-sm text-gray-400 mx-2">jane.doe@example.com</span>
+
+                                </div>
+                                {/* College */}
+                                <div className="flex flex-col items-center mx-2">
+                                    {/* <svg className="w-6 h-6 text-purple-400 mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 002 2v4a2 2 0 002 2v-4a2 2 0 00-2-2H6V6h10a2 2 0 002 2v4a2 2 0 002 2V6a2 2 0 00-2-2H4z" clipRule="evenodd"></path></svg> */}
+                                    <span className="font-medium" id="college">College</span>
+                                    <span className="text-sm text-gray-400 mx-2">Arts & Tech University</span>
+
+
+                                </div>
+                                {/* Course */}
+                                <div className="flex flex-col items-center mx-2">
+                                    {/* <svg className="w-6 h-6 text-purple-400 mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H4a1 1 0 00-1 1v3a1 1 0 001 1h1a1 1 0 100-2V4zm3 1h2v2H7V5zm3 0h2v2h-2V5z" clipRule="evenodd"></path></svg> */}
+                                    <span className="font-medium" id="course">Course</span>
+                                    <span className="text-sm text-gray-400 mx-2">Computer Science</span>
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -240,3 +255,4 @@ const DashBoard = () => {
 };
 
 export default DashBoard;
+
