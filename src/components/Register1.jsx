@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Main Registration Component
 const Register1 = () => {
+    const navigate = useNavigate();
     // State for form inputs
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
@@ -244,7 +246,7 @@ const Register1 = () => {
                 <div className="mt-6 text-center">
                     <p className="text-gray-400">
                         Already have an account?
-                        <a href="#" onClick={() => showMessage('Navigating to Login page...')} className="font-medium text-purple-400 hover:text-purple-300 ml-2 transition-colors duration-200">
+                        <a href="#" onClick={() => navigate('/login')} className="p-2 font-medium text-teal-400 hover:text-teal-300 transition-colors duration-200">
                             Sign In
                         </a>
                     </p>
