@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Main DashBoard component
 const DashBoard = () => {
+    const navigate = useNavigate()
     // State for managing the custom modal visibility and message
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
@@ -17,6 +19,11 @@ const DashBoard = () => {
         setIsModalOpen(false);
         setModalMessage('');
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        navigate('/login')
+    }
 
     return (
         <div className="bg-gray-900 mt-16 min-h-screen flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8 font-inter">
@@ -90,7 +97,7 @@ const DashBoard = () => {
                             <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14a1 1 0 01-1-1v-4a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-.257A6 6 0 0118 8zm-6-4a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
                             Communication Preferences
                         </button>
-                        <button onClick={() => showMessage('Logging out...')} className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center font-semibold">
+                        <button onClick={handleLogout} className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center font-semibold">
                             <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 10l1.293 1.293a1 1 0 11-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 0z" clipRule="evenodd"></path><path fillRule="evenodd" d="M16.707 10.293a1 1 0 010 1.414L15.414 13l1.293 1.293a1 1 0 01-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
                             Logout
                         </button>

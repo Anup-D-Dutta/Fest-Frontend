@@ -5,38 +5,20 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   // State to manage the mobile menu open/close status
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // State to track scroll position for background effect
-  const [scrollY, setScrollY] = useState(0);
 
   // Define navigation items with their names and corresponding paths
   const navItems = [
     { name: 'Home', path: '/' },
-    // { name: 'Events', path: '/events' },
-    // { name: 'Register', path: '/register' },
     { name: 'About', path: '/about' },
     { name: 'Login', path: '/login' },
-    
+
   ];
 
-  // Effect to handle scroll event and update scrollY state
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    // Add scroll event listener when the component mounts
-    window.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-black/20 backdrop-blur-lg border-b border-white/10 text-white' : 'text-white'
+      className={`fixed w-full z-50 transition-all duration-300  text-white
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

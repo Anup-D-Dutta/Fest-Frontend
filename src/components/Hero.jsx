@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 const Hero = () => {
     const navigate = useNavigate();
     const [showRegister, setShowRegister] = useState(false);
-    navigate('/register');
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -66,86 +65,6 @@ const Hero = () => {
     };
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        navigate('/register')
-        // Here you would typically send the data to your backend
-        console.log('Registration data:', formData);
-
-        alert('Registration successful! Check your email for confirmation.');
-        // setShowRegister(false);
-        setCurrentStep(1);
-        setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            college: '',
-            year: '',
-            events: [],
-            accommodation: false,
-            tshirtSize: 'M'
-        });
-    };
-
-    const events = [
-        {
-            icon: Music,
-            title: "Music Competitions",
-            description: "Battle of the Bands, Solo Singing, DJ Wars, and epic musical showdowns!",
-            gradient: "from-pink-500 to-purple-600",
-            delay: "delay-100",
-            id: "music"
-        },
-        {
-            icon: Users,
-            title: "Dance Battles",
-            description: "Hip-hop, Contemporary, Folk, and Fusion dance competitions!",
-            gradient: "from-blue-500 to-cyan-500",
-            delay: "delay-200",
-            id: "dance"
-        },
-        {
-            icon: Zap,
-            title: "Tech Events",
-            description: "Hackathons, Coding Competitions, AI Challenges, and Innovation!",
-            gradient: "from-yellow-400 to-orange-500",
-            delay: "delay-300",
-            id: "tech"
-        },
-        {
-            icon: Palette,
-            title: "Arts & Drama",
-            description: "Theater, Stand-up Comedy, Art exhibitions, and Creative showcases!",
-            gradient: "from-green-400 to-emerald-600",
-            delay: "delay-400",
-            id: "arts"
-        },
-        {
-            icon: Trophy,
-            title: "Sports Arena",
-            description: "Cricket, Football, Basketball tournaments and sports competitions!",
-            gradient: "from-red-500 to-pink-600",
-            delay: "delay-500",
-            id: "sports"
-        },
-        {
-            icon: Gamepad2,
-            title: "Gaming Zone",
-            description: "Esports tournaments, Gaming competitions, and endless fun!",
-            gradient: "from-indigo-500 to-purple-600",
-            delay: "delay-600",
-            id: "gaming"
-        }
-    ];
-
-    const nextStep = () => {
-        if (currentStep < 3) setCurrentStep(currentStep + 1);
-    };
-
-    const prevStep = () => {
-        if (currentStep > 1) setCurrentStep(currentStep - 1);
-    };
 
 
     return (
@@ -165,7 +84,10 @@ const Hero = () => {
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-1500">
                             <button
-                                onClick={() => setShowRegister(true)}
+                                onClick={() => {
+                                    setShowRegister(true);
+                                    navigate('/register')
+                                }}
                                 className="group relative px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/25"
                             >
                                 <span className="relative z-10 flex items-center justify-center">
