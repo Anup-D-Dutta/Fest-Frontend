@@ -5,9 +5,10 @@ import Footer from '../components/Footer'
 import Event from '../components/Event'
 import Countdown from '../components/Countdown'
 import { Cat } from 'lucide-react'
+import { Outlet } from 'react-router-dom'
 
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div>
       <NavBar />
@@ -15,9 +16,10 @@ const Home = () => {
       <Countdown />
       <Event />
       <Cat />
+      {/* <Outlet /> */}
       <Footer />
     </div>
   )
 }
 
-export default Home
+export default HomePage

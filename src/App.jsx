@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import AnimationBg from './components/AnimationBg';
 import './components/Countdown.css'
 import HomePage from './pages/HomePage'
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -41,8 +44,11 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-x-hidden">
       {/* Animated Background Elements */}
-      <AnimationBg />
-      <HomePage />
+      {/* <AnimationBg /> */}
+      <NavBar />
+      {/* <HomePage /> */}
+      <Outlet />
+      <Footer />
     </div>
   );
 };
