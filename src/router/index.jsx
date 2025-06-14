@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import Event from "../components/Event";
 import About from "../pages/AboutPage";
+import AdminPage from "../pages/AdminPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,9 @@ const router = createBrowserRouter(
       <Route path='login' element={<LoginPage />} />
       <Route path='dashboard' element={<DashBoardPage />} />
       <Route path='about' element={<About />} />
+      <Route path='admin' element={<AdminPage />} />
+      {/* Add more routes as needed */}
+      {/* Example: <Route path='contact' element={<ContactPage />} /> */}
     </Route>
   )
 )
